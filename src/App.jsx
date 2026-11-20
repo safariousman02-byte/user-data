@@ -103,14 +103,14 @@ export default function NexusDirectory() {
 
         <section className="w-full">
           {count > 0 ? (
-            users.map((u) => (
-              <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {users.map((u) => (
                 <article className="user-card flex flex-col bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden border border-gray-100">
                   {/* Header */}
                   <div className="bg-gradient-to-r from-blue-50 to-indigo-50/60 p-5 flex items-center justify-between">
                     <div className="flex items-center gap-3.5">
                       <div className="w-12 h-12 rounded-full bg-[#2563eb] text-white flex items-center justify-center font-bold text-lg shadow-sm flex-shrink-0">
-                        user initials
+                        {u.name.substring(0, 2).toUpperCase()}
                       </div>
                       <div className="flex flex-col min-w-0">
                         <span className="text-[#1f2937] font-bold text-lg leading-tight truncate">
@@ -187,8 +187,8 @@ export default function NexusDirectory() {
                     </div>
                   </div>
                 </article>
-              </div>
-            ))
+              ))}
+            </div>
           ) : (
             <p>
               <div className="w-full flex flex-col items-center justify-center p-12 text-center bg-white rounded-xl shadow-sm border border-gray-100 mt-4">
